@@ -1,4 +1,4 @@
-# sortowanie bąbelkowe (ang. Bubble sort)
+#  Bubble sort
 
 import os
 import string
@@ -7,34 +7,32 @@ import gc
 import matplotlib.pyplot as plt
 
 
-def bubble_sort(slowa):
-    slowa = slowa.copy()
-    for i in range(0, (len(slowa) -1)):
-        for j in range(0, (len(slowa) -1 -i)):
-            if slowa[j] > slowa[j+1]:
-                slowa[j], slowa[j + 1] = slowa[j + 1], slowa[j]
-    return slowa
+def bubble_sort(words):
+    words = words.copy()
+    for i in range(0, (len(words) -1)):
+        for j in range(0, (len(words) -1 -i)):
+            if words[j] > words[j+1]:
+                words[j], words[j + 1] = words[j + 1], words[j]
+    return words
 
 # wczytanie pliku
-sciezka_skryptu = os.path.dirname(__file__)
-plik = os.path.join(sciezka_skryptu, "pan-tadeusz.txt")
 
 with open('pan-tadeusz.txt', 'r', encoding='utf-8') as f:
-    zawartosc_pliku = f.read()
-    slowa = zawartosc_pliku.lower().split()
+    file_content = f.read()
+    words = file_content.lower().split()
 
 #oczyszczanie tekstu przez pominiecie w sortowaniu podstawowej interpunkcji + dodatkowej
-def oczysc_slowo(s):
+def clean_word(s):
     return s.strip(string.punctuation + "«»…")
 
-czyste_slowa = [oczysc_slowo(s) for s in slowa if oczysc_slowo(s)]
+clean_words = [clean_word(s) for s in words if clean_word(s)]
 
 # usuwanie duplikatów za pomocą set
-unikalne_slowa = list(set(czyste_slowa))
+unique_words = list(set(clean_words))
 
 # test na pierwszych 100 słowach
-test_sortowania = bubble_sort(slowa[:1000])  
-if test_sortowania == sorted(slowa[:1000], key=str.lower):
+sort_test = bubble_sort(words[:1000])  
+if sort_test == sorted(words[:1000], key=str.lower):
     print("bubble_sort: poprawnie sortuje")
 else:
     print("bubble_sort: BŁĄD SORTOWANIA!")
@@ -42,23 +40,23 @@ else:
 
 # czas sortowania i odśmiecanie
 
-rozmiar_listy = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]
-czas_sortowania = []
+list_size = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]
+sort_time = []
 
-for n in rozmiar_listy:
-    lista_testowa = slowa[:n]
+for n in list_size:
+    test_list = words[:n]
     gc_old = gc.isenabled()
     gc.disable() 
 
     start = time.process_time() 
-    bubble_sort(lista_testowa)
+    bubble_sort(test_list)
     stop = time.process_time()
     if gc_old: gc.enable() 
-    czas_sortowania.append(stop - start)
+    sort_time.append(stop - start)
     print('Czas wykonania w sekundach:', stop - start)
 
 #wykres
-plt.plot(rozmiar_listy, czas_sortowania, marker='o', linestyle='-', color='blue')
+plt.plot(list_size, sort_time, marker='o', linestyle='-', color='blue')
 plt.title("Czas sortowania")
 plt.xlabel("Liczba elementów")
 plt.ylabel("Czas [s]")
