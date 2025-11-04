@@ -31,7 +31,7 @@ clean_words = [clean_word(s) for s in words if clean_word(s)]
 # usuwanie duplikatów za pomocą set
 unique_words = list(set(clean_words))
 
-# test na pierwszych 100 słowach
+# test na pierwszych 1000 słowach
 sort_test = selection_sort(words[:1000])  
 if sort_test == sorted(words[:1000], key=str.lower):
     print("selection_sort: poprawnie sortuje")
