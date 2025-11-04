@@ -1,6 +1,5 @@
 # selection sort
 
-import os
 import string
 import time
 import gc
