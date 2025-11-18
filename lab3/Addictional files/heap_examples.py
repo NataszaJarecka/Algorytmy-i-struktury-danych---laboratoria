@@ -15,25 +15,21 @@ if __name__ == "__main__":
     print("2-ary heap:")
     for val in example_values:
         heap2.push(val)
-        print("2-ary heap: next element", val)
-        heap2.print_ascii_tree()
-
+    heap2.print_ascii_tree()
+   
 
     heap5 = Heap5()
     print("5-ary heap:")
     for val in example_values1:
         heap5.push(val)
-        print("5-ary heap: next element", val)
-        heap5.print_ascii_tree()
-
+    heap5.print_ascii_tree()
+    
 
     heap7 = Heap7()
     print("7-ary heap:")
     for val in example_values2:
         heap7.push(val)
-        print("7-ary heap: next element", val)
-        heap7.print_ascii_tree()
-
+    heap7.print_ascii_tree()
 
 
 

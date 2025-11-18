@@ -43,30 +43,30 @@ class Heap2:
             self.Heap[index], self.Heap[largest] = self.Heap[largest], self.Heap[index]
             self._correct_Heap(largest)
 
-    def print_pyramid(self):
-        data = self.Heap
-        children = 2
-        levels = []
-        max_len = max(len(str(x)) for x in data) + 2
-        start_index = 0
-        level_num = 0
-        while start_index < len(data):
-            num_elements = children**level_num
-            level = data[start_index : start_index + num_elements]
-            if not level:
-                break
-            levels.append(level)
-            start_index += num_elements
-            level_num += 1
+    # def print_pyramid(self):
+    #     data = self.Heap
+    #     children = 2
+    #     levels = []
+    #     max_len = max(len(str(x)) for x in data) + 2
+    #     start_index = 0
+    #     level_num = 0
+    #     while start_index < len(data):
+    #         num_elements = children**level_num
+    #         level = data[start_index : start_index + num_elements]
+    #         if not level:
+    #             break
+    #         levels.append(level)
+    #         start_index += num_elements
+    #         level_num += 1
 
-        pyramid_width = 80
+    #     pyramid_width = 80
 
-        for level in levels:
-            line =""
-            for x in level:
-                line += str(x).center(max_len)
+    #     for level in levels:
+    #         line =""
+    #         for x in level:
+    #             line += str(x).center(max_len)
 
-            print(line.center(pyramid_width))
+    #         print(line.center(pyramid_width))
 
     def print_ascii_tree(self, index=0, indent="", is_last=True):
         heap = self.Heap
@@ -132,39 +132,39 @@ class Heap5:
             self.Heap[index], self.Heap[largest] = self.Heap[largest], self.Heap[index]
             self._correct_Heap(largest)
 
-    def print_pyramid(self):
-        data = self.Heap
-        children = 5
-        levels = []
-        max_len = max(len(str(x)) for x in data) + 2
-        start_index = 0
-        level_num = 0
+    # def print_pyramid(self):
+    #     data = self.Heap
+    #     children = 5
+    #     levels = []
+    #     max_len = max(len(str(x)) for x in data) + 2
+    #     start_index = 0
+    #     level_num = 0
 
-        while start_index < len(data):
-            num_elements = children**level_num
-            level = data[start_index : start_index + num_elements]
-            if not level:
-                break
-            levels.append(level)
-            start_index += num_elements
-            level_num += 1
+    #     while start_index < len(data):
+    #         num_elements = children**level_num
+    #         level = data[start_index : start_index + num_elements]
+    #         if not level:
+    #             break
+    #         levels.append(level)
+    #         start_index += num_elements
+    #         level_num += 1
 
-        num_levels = len(levels)
+    #     num_levels = len(levels)
 
-        for i, level in enumerate(levels):
-            line = ""
-            for x in level:
-                line += str(x).center(max_len)
+    #     for i, level in enumerate(levels):
+    #         line = ""
+    #         for x in level:
+    #             line += str(x).center(max_len)
 
-        pyramid_width = 100
+    #     pyramid_width = 100
 
-        for i, level in enumerate(levels):
-            line =""
-            for x in level:
-                line += str(x).center(max_len)
+    #     for i, level in enumerate(levels):
+    #         line =""
+    #         for x in level:
+    #             line += str(x).center(max_len)
 
-            left_padding = " " * ((len(levels) - i - 1) * 2)
-            print(left_padding + line.center(pyramid_width))
+    #         left_padding = " " * ((len(levels) - i - 1) * 2)
+    #         print(left_padding + line.center(pyramid_width))
 
     def print_ascii_tree(self, index=0, indent="", is_last=True):
         heap = self.Heap
@@ -229,34 +229,34 @@ class Heap7:
             self.Heap[index], self.Heap[largest] = self.Heap[largest], self.Heap[index]
             self._correct_Heap(largest)
 
-    def print_pyramid(self):
-        data = self.Heap
-        children = 7
-        levels = []
-        max_len = max(len(str(x)) for x in data) + 2
-        start_index = 0
-        level_num = 0
+    # def print_pyramid(self):
+    #     data = self.Heap
+    #     children = 7
+    #     levels = []
+    #     max_len = max(len(str(x)) for x in data) + 2
+    #     start_index = 0
+    #     level_num = 0
 
-        while start_index < len(data):
-            num_elements = children**level_num
-            level = data[start_index : start_index + num_elements]
-            if not level:
-                break
-            levels.append(level)
-            start_index += num_elements
-            level_num += 1
+    #     while start_index < len(data):
+    #         num_elements = children**level_num
+    #         level = data[start_index : start_index + num_elements]
+    #         if not level:
+    #             break
+    #         levels.append(level)
+    #         start_index += num_elements
+    #         level_num += 1
 
-        num_levels = len(levels)
+    #     num_levels = len(levels)
 
-        pyramid_width = 120
+    #     pyramid_width = 120
 
-        for i, level in enumerate(levels):
-            line =""
-            for x in level:
-                line += str(x).center(max_len)
+    #     for i, level in enumerate(levels):
+    #         line =""
+    #         for x in level:
+    #             line += str(x).center(max_len)
 
-            left_padding = " " * ((num_levels - i - 1) * (max_len // 2))
-            print(left_padding + line.center(pyramid_width))
+    #         left_padding = " " * ((num_levels - i - 1) * (max_len // 2))
+    #         print(left_padding + line.center(pyramid_width))
 
     def print_ascii_tree(self, index=0, indent="", is_last=True):
         heap = self.Heap
