@@ -8,14 +8,14 @@ from heaps import Heap2, Heap5, Heap7
 import random
 
 def check_max_heap(heap, k):
-    arr = heap.Heap
-    n = len(arr)
+    elements = heap.Heap
+    n = len(elements)
 
     for parent_index in range(n):
         for i in range(1, k+1):
             child_index = k * parent_index + i
             if child_index < n:
-                if arr[parent_index] < arr[child_index]:
+                if elements[parent_index] < elements[child_index]:
                     return False
     return True
 
@@ -37,23 +37,36 @@ heap7 = Heap7()
 for val in values:
     heap7.push(val)
 
-heap2.push(400)
-heap5.push(400)
-heap7.push(400)
-
 print("Checking max-heap property after insertions:")
 
-print(check_max_heap(heap2, 2))
-print(check_max_heap(heap5, 5))
-print(check_max_heap(heap7, 7))
+for i in range(10):
+    n = random.randint(1, 300000)
+    heap2.push(n)
+    heap5.push(n)
+    heap7.push(n)
 
-
-heap2.delete()
-heap5.delete()
-heap7.delete()
+    if check_max_heap(heap2, 2) == False:
+        print("Error in Heap2 after pushing")
+    if check_max_heap(heap5, 5) == False:
+        print("Error in Heap5 after pushing")
+    if check_max_heap(heap7, 7) == False:
+        print("Error in Heap7 after pushing")
+    if i==9:
+        print("All heaps are correct after insertions.")
 
 print("Checking max-heap property after deletions:")
 
-print(check_max_heap(heap2, 2))
-print(check_max_heap(heap5, 5))
-print(check_max_heap(heap7, 7))
+for i in range(10):
+    heap2.delete()
+    heap5.delete()
+    heap7.delete()
+
+    if check_max_heap(heap2, 2) == False:
+        print("Error in Heap2 after deleting")
+    if check_max_heap(heap5, 5) == False:
+        print("Error in Heap5 after deleting")
+    if check_max_heap(heap7, 7) == False:
+        print("Error in Heap7 after deleting")
+    if i==9:
+        print("All heaps are correct after deletions.")
+
