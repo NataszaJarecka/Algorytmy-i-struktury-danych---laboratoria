@@ -4,10 +4,8 @@ class Node:
         self.left = None
         self.right = None
 
-    def __str__(self):
-        return f'Node with value: {self.value}'
-
 class BSLTree:
+
     def __init__(self, data):
         self.root = None
         self.data = data
@@ -70,21 +68,21 @@ class BSLTree:
     def search(self, element):
 
         if self.root is None:
-            return None
+            return False
         else:
-            node = self._search(self.root, element)
-            return node
+            is_in_tree = self._search(self.root, element)
+            return is_in_tree
 
     def _search(self, node, element):
 
         if node.value == element:
-            return node
+            return True
         elif node.right is not None and element > node.value:
             return self._search(node.right, element)
         elif node.left is not None and element < node.value:
             return self._search(node.left, element)
         else:
-            return None
+            return False
 
 
     def find_min(self, node):
