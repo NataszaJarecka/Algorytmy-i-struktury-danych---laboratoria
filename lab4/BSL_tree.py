@@ -1,8 +1,4 @@
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
+from Node import Node
 
 class BSLTree:
 
@@ -17,24 +13,21 @@ class BSLTree:
             self.insert(value)
 
     def insert(self, element):
-        if self.root is None:
-            self.root = Node(element)
-        else:
-            self._insert(self.root, element)
+        self.root = self._insert(self.root, element)
 
     def _insert(self, node, element):
 
-        if element > node.value:
-            if node.right is None:
-                node.right = Node(element)
-            else:
-                self._insert(node.right, element)
-        else:
-            if node.left is None:
-                node.left = Node(element)
-            else:
-                self._insert(node.left, element)
+        if not node:
+            return Node(element)
 
+        if element < node.value:
+            node.left = self._insert(node.left, element)
+        elif element > node.value:
+            node.right = self._insert(node.right, element)
+        else:
+            return node
+
+        return node
 
     def delete(self, element):
         self.root = self._delete(self.root, element)
