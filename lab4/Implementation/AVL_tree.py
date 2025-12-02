@@ -84,8 +84,6 @@ class AVLTree:
             node.left = self._insert(node.left, element)
         elif element > node.value:
             node.right = self._insert(node.right, element)
-        else:
-            return node
 
         node.height = 1 + max(self.height(node.left), self.height(node.right))
 
