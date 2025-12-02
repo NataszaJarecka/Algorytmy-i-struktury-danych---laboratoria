@@ -1,6 +1,6 @@
 from Node import Node
 
-class BSLTree:
+class BSTTree:
 
     def __init__(self, data):
         self.root = None
