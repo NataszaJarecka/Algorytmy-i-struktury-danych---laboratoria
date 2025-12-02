@@ -1,4 +1,4 @@
-# Test of deleting elements in BST Tree
+# Test of deleting elements in BSL Tree
 
 import os
 import sys
@@ -12,7 +12,7 @@ deleting_val = example_values[1],example_values[4], example_values[6], example_v
 
 if __name__ == "__main__":
     tree_bsl= BSLTree("")
-    
+
     print("BSL_tree:")
     print(" --> values to insert:", example_values)
     print(
@@ -25,11 +25,10 @@ tree_bsl.print_ascii_tree()
 for value in deleting_val:
     tree_bsl.delete(value)
 # tree_bsl.print_ascii_tree()
-    
+
 print("\nResults after deletions:")
 for v in example_values:
     found = tree_bsl.search(v)
     print(f"  {v}: {'FOUND' if found else 'NOT FOUND'}")
 
 tree_bsl.print_ascii_tree()
- 

@@ -5,7 +5,7 @@ import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from BSL_tree import BSLTree
+from BST_tree import BSTTree
 from AVL_tree import AVLTree
 
 example_values = [69, 10, 992, 612, 112, 628, 240, 817, 533, 38, 784, 971]
@@ -26,17 +26,17 @@ if __name__ == "__main__":
 
     print(
 
-# Checking the insertion function for an BSL tree-----------------
+# Checking the insertion function for an BST tree-----------------
 
     )
-    tree_bsl= BSLTree("")
-    print("BSL_tree:")
+    tree_BST= BSTTree("")
+    print("BST_tree:")
     print(
 
     )
     for val in example_values:
-        tree_bsl.insert(val)
-    tree_bsl.print_ascii_tree()
+        tree_BST.insert(val)
+    tree_BST.print_ascii_tree()
     print(
 
     )
@@ -59,17 +59,17 @@ if __name__ == "__main__":
 
     )
 
-## Checking the search function for the BSL tree----------------
-    print("BSL_tree:")
+## Checking the search function for the BST tree----------------
+    print("BST_tree:")
     print(" --> values in tree:", example_values)
     print(" --> search value is:", search_val)
     print(
     )
-    found = tree_bsl.search(search_val)
+    found = tree_BST.search(search_val)
     if found:
-        print("value is in BSL Tree")
+        print("value is in BST Tree")
     else:
-        print("value is not in BSL Tree")
+        print("value is not in BST Tree")
         tree_avl.search(search_val)
 
 
