@@ -24,8 +24,6 @@ class BSTTree:
             node.left = self._insert(node.left, element)
         elif element > node.value:
             node.right = self._insert(node.right, element)
-        else:
-            return node
 
         return node
 
