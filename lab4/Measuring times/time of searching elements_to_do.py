@@ -6,8 +6,8 @@ import time
 import gc
 import matplotlib.pyplot as plt
 
-from BSL_tree import BSLTree
-from AVL_tree import AVLTree
+from Implementation.BST_tree import BSTTree
+from Implementation.AVL_tree import AVLTree
 
 values = [random.randint(1, 30001) for _ in range(10000)]
 n = [1000,2000,3000,4000,5000,6000,7000,8000,9000,10000]
@@ -21,15 +21,15 @@ for size in n:
     # Najpierw budujemy drzewo wstawiając CAŁĄ listę wejściową
     for val in values:
         tree_avl.insert(val)
-    
+
     gc_old = gc.isenabled()
     gc.disable()
     start = time.process_time()
-    
+
     # Mierzymy czas wyszukiwania pierwszych `size` elementów
     for val in values[:size]:
         tree_avl.search(val)
-    
+
     stop = time.process_time()
     if gc_old: gc.enable()
 
@@ -39,8 +39,7 @@ for size in n:
 
 
 for size in n:
-    tree_bsl = BSLTree("")
-
+    tree_bsl = BSTTree("")
     # Również budujemy drzewo BSL na podstawie CAŁEJ listy wejściowej
     for val in values:
         tree_bsl.insert(val)
@@ -48,20 +47,20 @@ for size in n:
     gc_old = gc.isenabled()
     gc.disable()
     start = time.process_time()
-    
+
     # Teraz mierzymy czas wyszukiwania (a nie wstawiania)
     for val in values[:size]:
         tree_bsl.search(val)
-    
+
     stop = time.process_time()
     if gc_old: gc.enable()
 
     tree_bsl_times.append(stop - start)
 
-    print(f'Time of searching elements for BSL Tree : {stop - start} s')
+    print(f'Time of searching elements for BST Tree : {stop - start} s')
 
 plt.plot(n, tree_avl_times, marker='o', label='AVL Tree')
-plt.plot(n, tree_bsl_times, marker='o', label='BSL Tree')
+plt.plot(n, tree_bsl_times, marker='o', label='BST Tree')
 
 plt.title("Time of searching elements")
 plt.xlabel("Number of elements")
