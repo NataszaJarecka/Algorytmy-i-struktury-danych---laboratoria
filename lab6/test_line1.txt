@@ -1,0 +1,15 @@
+init 0 0 R zero
+init 1 1 R init
+init _ _ L check
+
+zero 0 0 R zero
+zero 1 1 R one
+zero _ _ * halt
+
+one 0 0 R one
+one 1 1 R one
+one _ _ * halt
+
+check 0 0 * haltOK
+check 1 1 * haltNO
+check _ _ * haltNO
