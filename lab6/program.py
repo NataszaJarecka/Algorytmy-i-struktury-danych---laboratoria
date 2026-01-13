@@ -1,10 +1,6 @@
-# Turing Machine Simulator
 
 import sys
 
-
-
-# reads the tape contents and the transition function
 
 def readfile(filename):
     with open(filename, "r") as f:
@@ -17,8 +13,8 @@ def load_transitions(filename):
     lines = readfile(filename)
 
     for line in lines:
-        line = line.strip()       
-        if not line:              
+        line = line.strip()
+        if not line:
             continue
 
         parts = line.split()
@@ -43,16 +39,12 @@ def load_transitions(filename):
 
 
 
-
-# displays the contents of the tape, the position of the head
-
 def print_config(tape, head, state):
     print("".join(tape), state)
     print(" " * head + "^")
 
 
 
-# finds and displays the sequence of changes in tape content, head position and status
 def step(tape, head, state, transitions):
     results = []
     symbol = tape[head]
@@ -61,7 +53,7 @@ def step(tape, head, state, transitions):
     if key not in transitions:
         return results
 
-    for action in transitions[key]:  # teraz action jest słownikiem
+    for action in transitions[key]:
         new_tape = tape.copy()
         new_head = head
 
@@ -72,7 +64,6 @@ def step(tape, head, state, transitions):
             new_head += 1
         elif direction == 'L':
             new_head -= 1
-        # '*' → brak ruchu, new_head pozostaje
 
         if new_head < 0:
             new_tape.insert(0, '_')
@@ -124,4 +115,3 @@ if __name__ == "__main__":
 
 
 
-        
